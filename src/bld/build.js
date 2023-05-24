@@ -1,4 +1,4 @@
-import { resolve } from "node:path";
+import { relative, resolve } from "node:path";
 import { cp, rm, writeFile } from "node:fs/promises";
 
 import { log } from "../log.js";
@@ -59,7 +59,7 @@ export const build = async (
           platform !== "osx"
             ? "package.nw"
             : "nwjs.app/Contents/Resources/app.nw",
-          file,
+          relative(process.cwd(), file),
         ),
         { recursive: true },
       );
