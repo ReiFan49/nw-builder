@@ -374,7 +374,7 @@ export const validate = async (options, releaseInfo) => {
   if (typeof options.srcDir !== 'string') {
     throw new Error('Expected options.srcDir to be a string. Got ' + typeof options.srcDir);
   }
-  if (Array.isArray(options.argv)) {
+  if (!Array.isArray(options.argv)) {
     throw new Error(
       'Expected options.argv to be an array. Got ' + typeof options.argv,
     );
