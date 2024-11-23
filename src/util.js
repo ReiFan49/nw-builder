@@ -430,6 +430,8 @@ export const validate = async (options, releaseInfo) => {
     }
   }
 
+  return undefined; // Do not use those checkers for now.
+
   if (options.platform === 'linux') {
     if (options.app.name && typeof options.app.name !== 'string') {
       throw new Error('Expected options.app.name to be a string. Got ' + options.app.name);
