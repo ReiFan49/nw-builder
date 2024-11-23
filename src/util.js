@@ -149,7 +149,7 @@ async function getNodeManifest({
   if (glob) {
     files = await globFiles({ srcDir, glob });
     for (const file of files) {
-      if (path.basename(file) === 'package.json' && manifest === undefined) {
+      if (path.basename(file) === 'package.json' && manifest.json === undefined) {
         manifest.path = file;
         manifest.json = JSON.parse(await fs.promises.readFile(file));
       }
